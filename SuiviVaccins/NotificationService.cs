@@ -41,7 +41,7 @@ public class EmailService
     {
         var client = new SmtpClient("smtp.gmail.com", 587)
         {
-            Credentials = new NetworkCredential("teneraphael57@gmail.com", "XXXXXXXXXXXXXXXX"),
+            Credentials = new NetworkCredential("teneraphael57@gmail.com", "qlke vecn ogua ibrr "),
             EnableSsl = true
         };
         client.Send("teneraphael57@gmail.com", email, "Rappel Vaccin", $"Le vaccin {vaccin} de {enfant} est dans 2 jours.");

@@ -40,16 +40,13 @@ namespace SuiviVaccins
 
             ChargerDonnees();
 
-            // Premier scan au démarrage
             Task.Run(() => VerifierEtEnvoyerEmails());
         }
-
-        // --- BACKEND : NOTIFICATIONS ---
 
         private void ConfigurerTimerNotification()
         {
             timerNotifications = new System.Windows.Forms.Timer();
-            timerNotifications.Interval = 3600000; // 1 heure
+            timerNotifications.Interval = 3600000; 
             timerNotifications.Tick += (s, ev) => Task.Run(() => VerifierEtEnvoyerEmails());
             timerNotifications.Start();
         }
@@ -97,7 +94,6 @@ namespace SuiviVaccins
                 }
                 catch (Exception ex)
                 {
-                    // Log de l'erreur en mode debug si nécessaire
                     Console.WriteLine("Erreur Notification: " + ex.Message);
                 }
             }
@@ -126,7 +122,7 @@ namespace SuiviVaccins
                 var smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
-                    Credentials = new NetworkCredential("teneraphael57@gmail.com", "VOTRE_CODE_16_LETTRES"), // Remplacez par votre mot de passe d'application
+                    Credentials = new NetworkCredential("teneraphael57@gmail.com", "qlke vecn ogua ibrr "),
                     EnableSsl = true,
                 };
 
@@ -142,8 +138,6 @@ namespace SuiviVaccins
             }
             catch { return false; }
         }
-
-        // --- INTERFACE : GESTION DES DONNÉES ---
 
         private void ChargerDonnees()
         {
